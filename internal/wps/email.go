@@ -22,9 +22,6 @@ func EmailPassword(cfg Config, passwd string) {
 		Text:    []byte(fmt.Sprintf("The password for the week is [ %s ]\n\nThank you!\n", passwd)),
 	}
 
-	log.Println(cfg.Sender.Email)
-	log.Println(cfg.Sender.Password)
-
 	err := e.Send(
 		cfg.Smtp.Server+":"+cfg.Smtp.Port,
 		smtp.PlainAuth(
