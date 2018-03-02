@@ -14,9 +14,24 @@ type User struct {
 	Email string `json:"email,omitempty"`
 }
 
+type Sender struct {
+	Name     string `json:"name,omitempty"`
+	Email    string `json:"email,omitempty"`
+	Password string `json:"password,omitempty"`
+}
+
+type Smtp struct {
+	Server string `json:"server,omitempty"`
+	Port   string `json:"port,omitempty"`
+}
+
 type Config struct {
-	Users []User   `json:"users,omitempty"`
-	Words []string `json:"words,omitempty"`
+	Users   []User   `json:"users,omitempty"`
+	Words   []string `json:"words,omitempty"`
+	Sender  Sender   `json:"sender,omitempty"`
+	Smtp    Smtp     `json:"smtp,omitempty"`
+	Body    string   `json:"body,omitempty"`
+	Subject string   `json:"subject,omitempty"`
 }
 
 func ConfigJson() Config {

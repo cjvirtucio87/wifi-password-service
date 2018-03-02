@@ -7,13 +7,10 @@ import (
 
 func main() {
 	cfg := wps.ConfigJson()
-	users := cfg.Users
 	passwd := wps.Password(cfg)
 
 	log.Println("Emailing users.")
-	for _, u := range users {
-		wps.EmailPassword(u, passwd)
-	}
+	wps.EmailPassword(cfg, passwd)
 
 	log.Println("Done!")
 }
