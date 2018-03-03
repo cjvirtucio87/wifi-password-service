@@ -4,6 +4,11 @@
 
 Randomly generates a password that you can email to your guests.
 
+### Requirements
+
+* Golang 1.9
+* GNU Make
+
 ### Usage
 
 Create a `~/.wps` folder.
