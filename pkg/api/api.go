@@ -32,7 +32,7 @@ type Logger interface {
 }
 
 type Sender interface {
-	Send(cfg *Config, body string) error
+	Send(body string) error
 }
 
 type Reader interface {

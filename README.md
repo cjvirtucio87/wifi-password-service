@@ -45,4 +45,8 @@ Create a `~/.wps/config.json` file with the following shape:
 }
 ```
 
+Create a similar file in the same folder named `config-5g.json` if you want to run one for a 5g network.
+
+Run `make` to build the binary, then execute it: `bin/wps --help`.
+
 *NOTE: For sending email using gmail, generate an App Password for the host machine. See [this](https://support.google.com/accounts/answer/185833) page for more info.
