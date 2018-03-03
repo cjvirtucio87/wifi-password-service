@@ -1,5 +1,2 @@
-vendor/*
 bin/*
-
-!vendor/.gitkeep
 !bin/.gitkeep
