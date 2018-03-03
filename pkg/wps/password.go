@@ -1,12 +1,13 @@
 package wps
 
 import (
+	"github.com/cjvirtucio87/wifi-password-service/pkg/api"
 	"math/rand"
 	"strings"
 	"time"
 )
 
-func Password(cfg Config) string {
+func Password(cfg *api.Config) string {
 	rand.Seed(time.Now().UnixNano())
 	wordCount := len(cfg.Words)
 	selected := []string{}

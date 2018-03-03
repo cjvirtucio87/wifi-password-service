@@ -2,18 +2,19 @@ package wps
 
 import (
 	"fmt"
+	"github.com/cjvirtucio87/wifi-password-service/pkg/api"
 	"github.com/jordan-wright/email"
 	"log"
 	"net/smtp"
 )
 
-func EmailPassword(cfg Config, passwd string) {
+func EmailPassword(cfg *api.Config, passwd string) {
 	to := []string{}
-	for _, u := range cfg.Users {
+	for _, u := range cfg.Guests {
 		to = append(to, u.Email)
 	}
 
-	from := fmt.Sprintf("%s <%s>", cfg.Sender.Name, cfg.Sender.Email)
+	from := fmt.Sprintf("%s <%s>", cfg.Admin.Name, cfg.Admin.Email)
 
 	e := &email.Email{
 		To:      to,
@@ -26,8 +27,8 @@ func EmailPassword(cfg Config, passwd string) {
 		cfg.Smtp.Server+":"+cfg.Smtp.Port,
 		smtp.PlainAuth(
 			"",
-			cfg.Sender.Email,
-			cfg.Sender.Password,
+			cfg.Admin.Email,
+			cfg.Admin.Password,
 			cfg.Smtp.Server,
 		),
 	)

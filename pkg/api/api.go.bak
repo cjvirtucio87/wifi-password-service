@@ -1,0 +1,18 @@
+package api
+
+import (
+	"github.com/cjvirtucio87/pkg/wps"
+)
+
+type Logger interface {
+	Info(m string)
+	Debug(m string)
+}
+
+type Sender interface {
+	Send(cfg *wps.Config, body string) err
+}
+
+type Reader interface {
+	Read(filename string) []byte
+}

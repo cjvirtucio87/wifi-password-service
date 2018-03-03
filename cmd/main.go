@@ -1,16 +1,20 @@
 package main
 
 import (
-	"github.com/cjvirtucio87/wifi-password-service/internal/wps"
-	"log"
+	"github.com/cjvirtucio87/wifi-password-service/pkg/wps"
 )
 
 func main() {
-	cfg := wps.ConfigJson()
-	passwd := wps.Password(cfg)
+	log := wps.NewWpsLogger("debug")
 
-	log.Println("Emailing users.")
-	wps.EmailPassword(cfg, passwd)
+	r := wps.NewConfigReader(log)
+	usr := wps.User(log)
+	cfg := wps.ReadConfig(r, usr, "config.json")
 
-	log.Println("Done!")
+	passwd := wps.Password(&cfg)
+
+	log.Info("Emailing users.")
+	wps.EmailPassword(&cfg, passwd)
+
+	log.Info("Done!")
 }
