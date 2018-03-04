@@ -43,7 +43,7 @@ func do(c *cli.Context) {
 	passwd := wps.Password(&cfg)
 
 	log.Info("Emailing users.")
-	m.Send(passwd)
+	m.Send(fmt.Sprintf("The wifi password for the week is [%s]. Please update your wifi connection settings, now.\nThank you!\n", passwd))
 }
 
 func main() {
