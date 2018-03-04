@@ -52,7 +52,7 @@ func main() {
 		cli.StringFlag{
 			Name:  "net",
 			Value: "default",
-			Usage: "router network to use, i.e. whether it's the regular one, or the 5g one (defaults to regular)",
+			Usage: "router network to use, i.e. whether it's the regular one, or the 5g one",
 		},
 		cli.StringFlag{
 			Name:  "log",
